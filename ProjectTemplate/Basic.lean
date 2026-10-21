@@ -1,8 +1,6 @@
 import Mathlib
 
-/*
- Hi
-*/
+-- Hi
 
 
 noncomputable def f (x : ℝ) : ℕ →  ℝ
@@ -12,13 +10,15 @@ noncomputable def f (x : ℝ) : ℕ →  ℝ
   | n + 2 => Real.cos ((n + 2) * x) * (f x (n + 1))
 
 
-def satisfiesTheProperty (n : ℕ) :=
-  |deriv (deriv (f n)) 0| > 2023
+def satisfiesTheProperty (n : ℕ) : Prop :=
+  |deriv (deriv (fun x : ℝ => f x n)) 0| > 2023
 
--- theorem Smallest_Num sorry :(
+theorem eighteenSatisfies : satisfiesTheProperty 18 := by
+  sorry
 
+theorem eighteenIsSmallest {n : ℕ} : satisfiesTheProperty (n : ℕ)→ n ≥ 18 := by
+  sorry
 
-
-- TODO for Friday:
-- Formalize the actual problem.
-- Set up a taylor series that was used in the solution.
+-- TODO for Friday:
+-- Formalize the actual problem.
+-- Set up a taylor series that was used in the solution.
