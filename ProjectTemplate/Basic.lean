@@ -12,7 +12,10 @@ noncomputable def f (x : ℝ) : ℕ →  ℝ
   | n + 2 => Real.cos ((n + 2) * x) * (f x (n + 1))
 
 
-  theorem Smallest_Num sorry :(
+def satisfiesTheProperty (n : ℕ) :=
+  |deriv (deriv (f n)) 0| > 2023
+
+-- theorem Smallest_Num sorry :(
 
 
 
