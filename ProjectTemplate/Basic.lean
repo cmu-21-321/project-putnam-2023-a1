@@ -16,7 +16,7 @@ def satisfiesTheProperty (n : ℕ) : Prop :=
 theorem eighteenSatisfies : satisfiesTheProperty 18 := by
   sorry
 
-theorem eighteenIsSmallest {n : ℕ} : satisfiesTheProperty (n : ℕ)→ n ≥ 18 := by
+theorem eighteenIsSmallest {n : ℕ} : satisfiesTheProperty (n : ℕ) → n ≥ 18 := by
   sorry
 
 -- TODO for Friday:
