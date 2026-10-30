@@ -1,13 +1,16 @@
 import Mathlib
 
--- Hi
+-- hello there this is really awesome and i hiope this is long enough?
 
-
+-- sup
 noncomputable def f (x : ℝ) : ℕ →  ℝ
-  | 0 => -1
-  | 1 => Real.cos x
-  | 2 => Real.cos x * Real.cos (2 * x)
-  | n + 2 => Real.cos ((n + 2) * x) * (f x (n + 1))
+  | 0 => 1
+  | n + 1 => Real.cos ((n + 1 : ℕ) * x) * (f x n)
+
+lemma f_zero (n : ℕ) : f 0 n = 1 := by
+  induction n with
+  | zero => simp [f]
+  | succ n ih =>
 
 
 def satisfiesTheProperty (n : ℕ) : Prop :=
