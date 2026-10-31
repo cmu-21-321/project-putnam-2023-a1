@@ -115,6 +115,24 @@ lemma f_taylor (n : ℕ) :
       intro x
       simp only [f, Finset.sum_range_succ, a, S] ; ring
 
+lemma f_is_twice_continuously_differentiable (n : ℕ) : ContDiff ℝ 2 (fun x : ℝ => f x n) := by
+  induction n with
+  | zero =>
+      change ContDiff ℝ 2 (fun x : ℝ => (1 : ℝ))
+      exact contDiff_const
+  | succ n ih =>
+      change ContDiff ℝ 2 (fun x : ℝ => Real.cos ((n + 1 : ℕ) * x) * f x n)
+      have h_first_part_cont_diff :
+          ContDiff ℝ 2 (fun x : ℝ => ((n + 1 : ℕ) : ℝ) * x) :=
+        ContDiff.mul contDiff_const contDiff_id
+      have h_cosine_part_cont_diff :
+          ContDiff ℝ 2 (fun x : ℝ => Real.cos (((n + 1 : ℕ) : ℝ) * x)) :=
+        ContDiff.comp
+          (f := fun x : ℝ => ((n + 1 : ℕ) : ℝ) * x)
+          (g := Real.cos)
+          Real.contDiff_cos h_first_part_cont_diff
+      exact ContDiff.mul h_cosine_part_cont_diff ih
+
 def satisfiesTheProperty (n : ℕ) : Prop :=
   |deriv (deriv (fun x : ℝ => f x n)) 0| > 2023
 
