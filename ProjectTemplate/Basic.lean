@@ -126,11 +126,8 @@ lemma f_is_twice_continuously_differentiable (n : ℕ) : ContDiff ℝ 2 (fun x :
           ContDiff ℝ 2 (fun x : ℝ => ((n + 1 : ℕ) : ℝ) * x) :=
         ContDiff.mul contDiff_const contDiff_id
       have h_cosine_part_cont_diff :
-          ContDiff ℝ 2 (fun x : ℝ => Real.cos (((n + 1 : ℕ) : ℝ) * x)) :=
-        ContDiff.comp
-          (f := fun x : ℝ => ((n + 1 : ℕ) : ℝ) * x)
-          (g := Real.cos)
-          Real.contDiff_cos h_first_part_cont_diff
+          ContDiff ℝ 2 (fun x : ℝ => Real.cos ((n + 1 : ℕ) * x)) :=
+        Real.contDiff_cos.comp h_first_part_cont_diff
       exact ContDiff.mul h_cosine_part_cont_diff ih
 
 def satisfiesTheProperty (n : ℕ) : Prop :=
