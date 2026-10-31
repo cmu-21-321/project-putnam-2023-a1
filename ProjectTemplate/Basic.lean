@@ -1,8 +1,15 @@
+/-
+Copyright (c) 2026 CMU. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Tiffany Darmawan, Daniela Bellido Rodriguez, Isaac Li
+-/
+
 import Mathlib
 
--- hello there this is really awesome and i hiope this is long enough?
-
--- sup
+/-!
+# STOP IT
+HELP I'M TRAPPED IN A MODULE
+-/
 noncomputable def f (x : ℝ) : ℕ →  ℝ
   | 0 => 1
   | n + 1 => Real.cos ((n + 1 : ℕ) * x) * (f x n)
@@ -10,7 +17,7 @@ noncomputable def f (x : ℝ) : ℕ →  ℝ
 lemma f_zero (n : ℕ) : f 0 n = 1 := by
   induction n with
   | zero => simp [f]
-  | succ n ih =>
+  | succ n ih => rw [f, ih]; ring_nf; exact Real.cos_zero
 
 
 def satisfiesTheProperty (n : ℕ) : Prop :=
