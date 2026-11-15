@@ -1,5 +1,9 @@
 import Mathlib
 
+/-
+I am a docstring. I am a docstring. I am a docstring. I am a docstring. I am a docstring.
+-/
+
 
 -- Describes that the m-1 x n-1 grid initially contains the coins.
 def initiallyContainsCoin (m n : ℕ)
@@ -35,3 +39,13 @@ def moveIsAllowed {m n : ℕ}
   ∧ destination ∉ configuration
   ∧ (destination.1, origin.2) ∉ configuration
   ∧ (origin.1, destination.2) ∉ configuration
+
+/-
+Checks if the configuration matches after removing the coin from origin, then adding a coin to
+the destination.
+-/
+def moveIsResultOfOther {m n : ℕ}
+    (configuration nextConfiguration : Finset ({i : ℕ // 1 ≤ i ∧ i ≤ m} × {j : ℕ // 1 ≤ j ∧ j ≤ n}))
+    (origin destination : {i : ℕ // 1 ≤ i ∧ i ≤ m} × {j : ℕ // 1 ≤ j ∧ j ≤ n})
+    : Prop :=
+  nextConfiguration = insert destination (configuration.erase origin)
