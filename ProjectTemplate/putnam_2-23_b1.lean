@@ -49,3 +49,10 @@ def moveIsResultOfOther {m n : ℕ}
     (origin destination : {i : ℕ // 1 ≤ i ∧ i ≤ m} × {j : ℕ // 1 ≤ j ∧ j ≤ n})
     : Prop :=
   nextConfiguration = insert destination (configuration.erase origin)
+
+def legalMove {m n : ℕ}
+    (configuration nextConfiguration : Finset ({i : ℕ // 1 ≤ i ∧ i ≤ m} × {j : ℕ // 1 ≤ j ∧ j ≤ n}))
+    (origin destination : {i : ℕ // 1 ≤ i ∧ i ≤ m} × {j : ℕ // 1 ≤ j ∧ j ≤ n})
+    : Prop :=
+  moveIsAllowed configuration origin destination
+  ∧ moveIsResultOfOther configuration nextConfiguration origin destination
