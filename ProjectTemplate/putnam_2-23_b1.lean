@@ -1,3 +1,9 @@
+/-
+Copyright (c) 2026 CMU. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Tiffany Darmawan, Daniela Bellido Rodriguez, Isaac Li
+-/
+
 import Mathlib
 
 /-

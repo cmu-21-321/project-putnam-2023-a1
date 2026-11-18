@@ -22,7 +22,7 @@ noncomputable def f (x : ℝ) : ℕ →  ℝ
 
 lemma f_zero (n : ℕ) : f 0 n = 1 := by
   induction n with
-  | zero => simp [f]
+  | zero => unfold f; rfl
   | succ n ih => rw [f, ih]; ring_nf; exact Real.cos_zero
 
 -- First establish the quadratic expansion of cos at zero.
