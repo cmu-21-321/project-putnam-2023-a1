@@ -5,17 +5,27 @@ Authors: Tiffany Darmawan, Daniela Bellido Rodriguez, Isaac Li
 -/
 
 import Mathlib
+
 /-!
-# hey
-ok bye
+# Putnam 2023 A1
+
+For a positive integer n, let f x n be the product of the first n
+cosine factors cos (k * x), starting at k = 1. The problem asks for
+the least positive n for which the absolute value of the second
+derivative at zero is greater than 2023.
+
+The lemma f_second_deriv_zero uses the product rule and induction to
+show that the second derivative at zero is the negative sum of the
+squares from 1 to n. The theorems eighteenSatisfies and
+eighteenIsSmallest together argue that 18 meets the bound and that no smaller
+value does.
+
+The problem sheet for the 2023 Putnam exam is linked here: https://kskedlaya.org/putnam-archive/2023.pdf.
 -/
+
 open scoped BigOperators Topology
 open Filter Asymptotics
 
-/-!
-# STOP IT
-HELP I'M TRAPPED IN A MODULE
--/
 noncomputable def f (x : ℝ) : ℕ →  ℝ
   | 0 => 1
   | n + 1 => Real.cos ((n + 1 : ℕ) * x) * (f x n)

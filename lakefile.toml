@@ -16,4 +16,4 @@ rev = "v4.36.0-rc1"
 
 [[lean_lib]]
 name = "ProjectTemplate"
-roots = ["ProjectTemplate", "Project_Files.putnam_2023_a1", "Project_Files.Putnam2023A1Taylor"]
+roots = ["Project_Files.putnam_2023_a1", "Project_Files.Putnam2023_a1_with_Taylor"]

@@ -7,7 +7,21 @@ Authors: Tiffany Darmawan, Daniela Bellido Rodriguez, Isaac Li
 import Project_Files.putnam_2023_a1
 
 /-!
-# Taylor expansion for the Putnam 2023 A1 cosine product
+# Taylor expansion for the Putnam 2023 A1
+
+This file uses a quadratic Taylor expansion at zero for the cosine product
+f defined in Project_Files.putnam_2023_a1.lean. It first expands cos x and
+cos (a * x), then multiplies the expansions by induction. The lemma
+f_taylor identifies the quadratic coefficient as minus half the sum of
+squares from 1 to n and bounds the remainder by little-o of x^2.
+
+Taylor expansions offer an elegant alternative proof method that are
+extremely elegant on paper. However, this proof method becomes very complicated
+in Lean, and we were not able to finish the whole proof with it. The primary
+proof is therefore the one in putnam_2023_a1.lean, with the work here preserved
+for prosterity.
+
+The problem sheet for the 2023 Putnam exam is linked here: https://kskedlaya.org/putnam-archive/2023.pdf.
 -/
 
 open scoped BigOperators Topology

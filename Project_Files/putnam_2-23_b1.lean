@@ -6,8 +6,21 @@ Authors: Tiffany Darmawan, Daniela Bellido Rodriguez, Isaac Li
 
 import Mathlib
 
-/-
-I am a docstring. I am a docstring. I am a docstring. I am a docstring. I am a docstring.
+/-!
+# Putnam 2023 B1
+
+Problem B1 on the 2023 Putnam exam is stated as follows. On an m by n
+grid, coins are initially placed to fully occupy the upper-left
+(m - 1) by (n - 1) rectangle. There is always at most coin per square.
+A coin at i, j) can slide to (i + 1, j + 1) if that square and the two
+squares (i + 1, j) and (i, j + 1) are on the board and empty.
+How many distinct configurations can be reached after any number of
+legal moves, including zero?
+
+The definition initialConfiguration gives the starting set of occupied
+squares, and legalMove describes a defines move and its effect.
+
+The problem sheet for the 2023 Putnam exam is linked here: https://kskedlaya.org/putnam-archive/2023.pdf.
 -/
 
 

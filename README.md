@@ -16,7 +16,7 @@ for $f_n''(0)$ as a sum of squares. This sum is
 
 - [Main formalization]Project_Files/putnam_2023_a1.lean contains the cosine product
   definition and the direct differentiation proof of the 2023 A1 result.
-- [Taylor expansion]Project_Files/Putnam2023A1Taylor.lean proves some of the results leading 
+- [Taylor expansion](Project_Files/Putnam2023_a1_with_Taylor.lean) proves some of the results leading
 up to an alternate approach to proving the problem result using Taylor expansions.
 - [Putnam B1 exploration]Project_Files/putnam_2-23_b1.lean gives the initial definitions for a 
 separate problem. 
