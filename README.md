@@ -1,67 +1,31 @@
-# ProjectTemplate
+# 2023 Putnam A1 in Lean
 
-A template for Lean 4 projects that depend on [Mathlib](https://github.com/leanprover-community/mathlib4).
+This project formalizes the solution to the Putnam 2023 exam's problem A1.
 
-## Prerequisites
+The problem is stated as follows: 
+For positive integer $n$, let 
+$f_n(x) = \cos(x)\cos(2x)\cdots\cos(nx)$. What is the problem asks for the smallest positive
+integer $n$ such that the absolute value of $f_n''(0)$ exceeds 2023? 
 
-Install Lean via [elan](https://github.com/leanprover/elan) (see the
-[Lean installation guide](https://lean-lang.org/install/)). The correct Lean version is
-picked up automatically from `lean-toolchain`.
+The proof computes
+$f_n''(0) = -\sum_{k=1}^n k^2$ using the product rule and induction. The sum is
+1785 at $n = 17$ and 2109 at $n = 18$, so monotonicity gives the minimum $n = 18$.
 
-## 1. Rename the project
+## Repository guide
 
-After creating your repository from this template, rename it from `ProjectTemplate` to your
-own project name:
+- [Main formalization](Project_Files/putnam_2023_a1.lean) defines the cosine product as
+  `f`. Start with `f_second_deriv_zero` for the derivative calculation, then see
+  `eighteenSatisfies` and `eighteenIsSmallest` for the final result.
+- [Project outline](Project_Files/Outline.md) records the initial proof plan.
+- [Putnam B1 exploration](Project_Files/putnam_2-23_b1.lean) defines the initial
+  coin configuration and legal moves for a separate problem.
 
-```bash
-./customize.sh MyProject
-```
+## Checking the proof
 
-This updates `lakefile.toml`, `lake-manifest.json`, the Lean imports and this README's title, and
-renames `ProjectTemplate.lean` and `ProjectTemplate/` to `MyProject.lean` and `MyProject/`.
-The name must be a valid Lean module name (letters, digits and underscores, starting with a
-letter; UpperCamelCase is conventional). Commit the result, then delete `customize.sh`.
+With Lean installed via elan, run these commands from the repository root. Elan
+selects the Lean version pinned in [lean-toolchain](lean-toolchain).
 
-## 2. Get the Mathlib cache
-
-Compiling Mathlib from source takes hours, so download the prebuilt files instead:
-
-```bash
+```sh
 lake exe cache get
+lake env lean Project_Files/putnam_2023_a1.lean
 ```
-
-Re-run this whenever you change the Mathlib version (or if your editor starts rebuilding
-Mathlib files).
-
-## 3. Build and work on the project
-
-```bash
-lake build
-```
-
-- Put your Lean files under `MyProject/` and import each one from `MyProject.lean`, so that
-  `lake build` (and CI) checks them.
-- Open the repository folder (not a single file) in VS Code with the Lean 4 extension.
-
-## Updating Mathlib
-
-Change the `rev` under `[[require]]` in `lakefile.toml` to the new Mathlib tag, and set
-`lean-toolchain` to match. Then run:
-
-```bash
-lake update mathlib
-lake exe cache get
-lake build
-```
-
-Alternatively, run the **Update Dependencies** workflow from the GitHub *Actions* tab: it
-opens a pull request if the update builds, or an issue if it doesn't. (Uncomment the
-`schedule` block in `.github/workflows/update.yml` to run it automatically.)
-
-## GitHub setup
-
-- **CI**: every push and pull request is built by `.github/workflows/lean_action_ci.yml`.
-- To let the update workflow open pull requests, go to **Settings → Actions → General** and
-  tick **Allow GitHub Actions to create and approve pull requests**.
-- To publish docs to GitHub Pages, set **Settings → Pages → Source** to "GitHub Actions" and
-  uncomment the `docgen-action` line in `lean_action_ci.yml`.
