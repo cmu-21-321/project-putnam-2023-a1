@@ -1,0 +1,16 @@
+
+
+Isaac: 
+- When working in the lean files, I frequently used AI to 
+  search for Mathlib theorems that would be convenient. 
+- I used AI to format the project write-up. 
+- I used AI to structure the documentation and docstrings 
+  in this repository and for the Lean files in this 
+  repository. 
+- I used AI to learn about elements relevant to the proof and 
+  asked it to walk me through steps that were new to me, most 
+  notably it taught me how to prove things were continuously 
+  differentiable in the f_is_twice_continuously_differentiable 
+  lemma in the putham_2023_a1.lean file. 
+- I used AI to explain tactics to me when I encountered 
+  areas not covered in class. 
